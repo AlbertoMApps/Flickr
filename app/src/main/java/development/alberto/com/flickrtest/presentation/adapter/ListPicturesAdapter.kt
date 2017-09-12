@@ -20,16 +20,13 @@ class ListPicturesAdapter(var context: MainActivity, var mLayout: Int) : Recycle
 
     var listPictures:List<Item> = ArrayList<Item>() as List<Item>
 
-//    fun updateListImages(lPictures:List<Item>){
-//        listPictures = lPictures
-//    }
-
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder!!.bindItems( this.listPictures.get(position) )
-//        holder.itemView.setOnClickListener(View.OnClickListener {
-//            val anim = ViewAnimationUtils.createCircularReveal(holder.itemView.ivPictures, 100, 100, 1000f, 0f)
-//            anim.start()
-//        })
+        holder.itemView.setOnClickListener(View.OnClickListener {
+            val anim = ViewAnimationUtils.createCircularReveal(holder.itemView.ivPictures, 100, 100, 1000f, 0f)
+            anim.start()
+        })
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
