@@ -1,6 +1,7 @@
 package development.alberto.com.flickrtest
 
 import development.alberto.com.flickrtest.data.api.FlickrApi
+import development.alberto.com.flickrtest.data.constant.Constant
 import development.alberto.com.flickrtest.data.model.Flickr
 import development.alberto.com.flickrtest.data.service.RetrofitService
 import io.reactivex.Observable
@@ -27,7 +28,8 @@ class FlickrObervableTest(){
 
     @Before
     fun setup(){
-        restApiFlickr = retrofitService.restApiServiceFlickr()
+        retrofitService.restApiServiceFlickr(Constant.FLICKR_BASE_URL)
+        restApiFlickr = retrofitService.createRestFlikrApi()!!
     }
 
     @Test

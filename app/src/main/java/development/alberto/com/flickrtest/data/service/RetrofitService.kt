@@ -1,7 +1,6 @@
 package development.alberto.com.flickrtest.data.service
 
 import development.alberto.com.flickrtest.data.api.FlickrApi
-import development.alberto.com.flickrtest.data.constant.Constant
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -15,13 +14,18 @@ import java.util.concurrent.Executors
 
 class RetrofitService {
 
-    fun restApiServiceFlickr(): FlickrApi {
-        var retrofit: Retrofit? = Retrofit.Builder()
-                .baseUrl(Constant.FLICKR_BASE_URL)
+    var retrofit: Retrofit? = null
+
+    fun restApiServiceFlickr(urlBase:String) {
+        retrofit = Retrofit.Builder()
+                .baseUrl(urlBase)
                 .client(OkHttpClient())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.from(Executors.newCachedThreadPool())))
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
+    }
+
+    fun createRestFlikrApi(): FlickrApi? {
         return retrofit!!.create(FlickrApi::class.java)
     }
 

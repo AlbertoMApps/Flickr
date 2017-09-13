@@ -8,9 +8,17 @@
     tools:context="development.alberto.com.flickrtest.presentation.view.initialpictures.MainActivity"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search for picture: "
+        android:textSize="@dimen/title_size"/>
+
     <EditText
         android:id="@+id/etSearch"
         android:layout_width="wrap_content"
+
+
         android:layout_height="wrap_content" />
 
     <android.support.v7.widget.RecyclerView

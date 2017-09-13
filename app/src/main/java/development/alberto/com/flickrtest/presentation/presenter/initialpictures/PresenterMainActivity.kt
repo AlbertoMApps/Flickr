@@ -2,6 +2,7 @@ package development.alberto.com.flickrtest.presentation.presenter.initialpicture
 
 import com.jakewharton.rxbinding2.widget.RxTextView
 import development.alberto.com.flickrtest.business.interactor.Interactor
+import development.alberto.com.flickrtest.data.datarepository.FlickrRepository
 import development.alberto.com.flickrtest.presentation.presenter.Presenter
 import development.alberto.com.flickrtest.presentation.view.initialpictures.ViewActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -34,7 +35,7 @@ class PresenterMainActivity ( var viewActivity:ViewActivity ): Presenter {
 
     override fun sendUserText() {
 
-        var interactor = Interactor()
+        var interactor = Interactor(FlickrRepository())
         var userText = viewActivity.getEditText()
 
         if(userText !=null) {
