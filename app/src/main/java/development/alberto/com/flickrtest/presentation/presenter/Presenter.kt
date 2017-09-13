@@ -12,5 +12,5 @@ interface Presenter {
     fun onPause()
     fun onDestroy()
     //other functions
-    fun sendUserText(trim: EditText)
+    fun sendUserText()
 }

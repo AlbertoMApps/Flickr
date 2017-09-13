@@ -1,5 +1,6 @@
 package development.alberto.com.flickrtest.presentation.view.initialpictures
 
+import android.widget.EditText
 import development.alberto.com.flickrtest.data.model.Item
 
 /**
@@ -8,5 +9,5 @@ import development.alberto.com.flickrtest.data.model.Item
   interface ViewActivity {
     fun showError(s: String)
     fun showPicturesInList(items: List<Item>?)
-
+    fun getEditText(): EditText?
 }

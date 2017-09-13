@@ -21,7 +21,7 @@ import android.support.v7.widget.RecyclerView
  */
 
 @RunWith(AndroidJUnit4::class)
-class RxEditTextTest {
+class EditTextRVTest {
     @get:Rule
     val activityRule = ActivityTestRule(MainActivity::class.java)
 

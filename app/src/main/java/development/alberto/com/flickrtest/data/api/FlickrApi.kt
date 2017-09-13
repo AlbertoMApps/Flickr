@@ -12,4 +12,7 @@ import retrofit2.http.Query
 interface FlickrApi {
     @GET(Constant.FLICKER_SEARCH_BY_TAG)
     fun getFLickrObservable(@Query("tag") tag: String): Observable<Flickr>
+    //returns an observable List just for testing purposes
+    @GET(Constant.FLICKER_SEARCH_BY_TAG)
+    fun getFLickrListObservableTest(@Query("tag") tag: String): Observable<List<Flickr>>
 }

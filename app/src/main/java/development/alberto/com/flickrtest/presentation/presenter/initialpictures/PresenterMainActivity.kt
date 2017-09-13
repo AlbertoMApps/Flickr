@@ -1,6 +1,5 @@
 package development.alberto.com.flickrtest.presentation.presenter.initialpictures
 
-import android.widget.EditText
 import com.jakewharton.rxbinding2.widget.RxTextView
 import development.alberto.com.flickrtest.business.interactor.Interactor
 import development.alberto.com.flickrtest.presentation.presenter.Presenter
@@ -9,7 +8,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.Consumer
 import io.reactivex.functions.Predicate
 import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 /**
@@ -34,9 +32,10 @@ class PresenterMainActivity ( var viewActivity:ViewActivity ): Presenter {
 
     }
 
-    override fun sendUserText(userText: EditText) {
+    override fun sendUserText() {
 
-        var interactor: Interactor = Interactor()
+        var interactor = Interactor()
+        var userText = viewActivity.getEditText()
 
         if(userText !=null) {
             //EditTextObservable

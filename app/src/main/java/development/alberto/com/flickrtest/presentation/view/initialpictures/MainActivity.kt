@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import android.widget.EditText
 import development.alberto.com.flickrtest.R
 import development.alberto.com.flickrtest.data.model.Item
 import development.alberto.com.flickrtest.presentation.adapter.ListPicturesAdapter
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity(), ViewActivity {
         picturesListView.adapter = listPicturesAdapter
 
         presenterMainActivityPictures = PresenterMainActivity(this)
-        presenterMainActivityPictures.sendUserText(etSearch)
+        presenterMainActivityPictures.sendUserText()
     }
 
     override fun showError(s: String) {
@@ -43,6 +44,11 @@ class MainActivity : AppCompatActivity(), ViewActivity {
         listPicturesAdapter.listPictures = imagePictures
 //        picturesListView.adapter.notifyDataSetChanged()
         listPicturesAdapter.notifyDataSetChanged()
+    }
+
+    //Testing purposes
+    override fun getEditText(): EditText? {
+        return etSearch
     }
 
 }
